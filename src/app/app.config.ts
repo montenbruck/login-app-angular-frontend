@@ -21,6 +21,19 @@ import { LoginUseCase } from './features/auth/domain/login.usecase';
 // Importar la interfaz abstracta del repositorio de autenticación
 import { AuthRepository } from './features/auth/domain/auth.repository';
 
+// Importar los servicios de la característica de usuarios
+import { UserService } from './features/users/services/user.service';
+// Importar la implementación del repositorio de usuarios
+import { UserApiRepository } from './features/users/infrastructure/user-api.repository';
+// Importar los casos de uso de usuarios
+import { GetAllUsersUseCase } from './features/users/domain/get-all-users.usecase';
+import { GetUserByIdUseCase } from './features/users/domain/get-user-by-id.usecase';
+import { CreateUserUseCase } from './features/users/domain/create-user.usecase';
+import { UpdateUserUseCase } from './features/users/domain/update-user.usecase';
+import { DeleteUserUseCase } from './features/users/domain/delete-user.usecase';
+// Importar la interfaz abstracta del repositorio de usuarios
+import { UserRepository } from './features/users/domain/user.repository';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,7 +48,14 @@ export const appConfig: ApplicationConfig = {
     // Proveedores para la Feature de Autenticación
     LoginService,
     LoginUseCase,
-    // Provee la implementación concreta para la interfaz abstracta del repositorio
-    { provide: AuthRepository, useClass: AuthApiRepository }
+    { provide: AuthRepository, useClass: AuthApiRepository }, // Provee la implementación concreta para AuthRepository
+    // Proveedores para la Feature de Usuarios
+    UserService,
+    GetAllUsersUseCase,
+    GetUserByIdUseCase,
+    CreateUserUseCase,
+    UpdateUserUseCase,
+    DeleteUserUseCase,
+    { provide: UserRepository, useClass: UserApiRepository } // Provee la implementación concreta para UserRepository
   ]
 };
