@@ -37,9 +37,8 @@ export class LoginService {
   login(credentials: Credentials): Observable<AuthResponse> {
     return this.loginUseCase.execute(credentials).pipe(
       tap(authResponse => {
-        // Una vez que el caso de uso devuelve una respuesta exitosa,
-        // el servicio de login se encarga de almacenar la sesión.
-        this.authService.setAuth(authResponse);
+        // Usar el método login de AuthService para almacenar usuario y token
+        this.authService.login(authResponse);
       })
     );
   }

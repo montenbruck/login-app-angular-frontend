@@ -1,15 +1,19 @@
 // src/app/features/auth/components/login/login.component.ts
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service'; // Importación correcta
+import { LoginService } from '../../../features/auth/services/login.service';
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html', // Referencia al archivo HTML
-  styleUrls: ['./login.component.scss'] // Referencia al archivo SCSS
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: FormGroup;

@@ -1,7 +1,7 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard'; // Importar el guardia de autenticación
-import { LoginComponent } from './features/auth/components/login/login.component'; // Importar el componente de login
+import { LoginComponent } from './features/auth/components/login.component'; // Importar el componente de login
 
 // Definición de las rutas de la aplicación
 export const routes: Routes = [

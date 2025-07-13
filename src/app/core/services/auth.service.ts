@@ -1,7 +1,8 @@
 // src/app/core/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User, AuthResponse } from '../models/user.model'; // Importar los modelos
+import { User } from '../models/user.model';
+import { AuthResponse } from '../models/auth-response.model';
 
 /**
  * @Injectable()
